@@ -6,13 +6,15 @@
 <% end %>
 
 <div>
-  <% if @items %>
+  <% if @error %>
+    <p><%= @error %></p>
+  <% elsif @results %>
     <ul>
-    <% @items.each do |item| %>
+    <% @results.each do |result| %>
       <li>
-        <%= item["name"] %><br>
-        <%= link_to item["html_url"], item["html_url"] %><br>
-        <%= item["description"] %>
+        <%= result["name"] %><br>
+        <%= link_to result["html_url"], result["html_url"] %><br>
+        <%= result["description"] %>
       </li>
     <% end %>
     </ul>
